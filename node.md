@@ -40,3 +40,32 @@ map.each {
 }
 ```
 
+**for**
+```
+for(int i in 1..10)
+{
+   
+}
+```
+
+**method**
+```
+def method1(a,b){
+    if(a > b) {
+        println a + b
+    }else{
+        println a - b
+    }
+}
+method1(1,2)
+
+def method2(closure)
+{
+   closure(1,2)
+}
+method2{a,b -> {
+     println "${a},${b}"
+  }
+}
+```
+

@@ -17,6 +17,20 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+def method1(a,b){
+    if(a > b) {
+        println a + b
+    }else{
+        println a - b
+    }
+}
+
+def method2(closure)
+{
+    closure(1,2)
+}
+
+
 task hello {
     /*
     def list = [1,2,3,4,5,6]
@@ -42,6 +56,11 @@ task hello {
     }
 
     doLast {
+        method1(1,2)
+        method2{a,b -> {
+                println "${a},${b}"
+            }
+        }
     }
 
 }

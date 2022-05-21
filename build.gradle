@@ -30,6 +30,20 @@ def method2(closure)
     closure(1,2)
 }
 
+task hello1 {
+ println("hello1")
+}
+
+task hello2 {
+ println("hello2")
+}
+
+hello1.mustRunAfter hello2
+
+ext {
+    name = "123"
+    age = "123"
+}
 
 task hello {
     /*
@@ -63,4 +77,16 @@ task hello {
         }
     }
 
+    dependsOn hello1,hello2
+
+    println "project is hasProperty:${project.hasProperty("hello1")}"
+    println "name is:${project.ext.name}"
+}
+
+def Task myTask = task exTask
+myTask.group = BasePlugin.BUILD_GROUP
+myTask.description = "11111111111111111"
+myTask.doLast {
+    println"group:${group},description:${description}"
+    println "${project.hasProperty("test")}"
 }
